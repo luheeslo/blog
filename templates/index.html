@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="articles-details">
+    {% for article in articles %}
+   <div class="details">
+       <p class="time">
+           {{ article['date'].strftime('%Y-%m-%d') }}
+       </p>
+       <h4 class="title-article">
+           <a href="{{ url_for('page', entry=article['path']) }}">{{ article['title'] }}</a>
+       </h4>
+       <p class="summary">{{ article['summary']|truncate(142) }}</p>
+   </div> 
+    {% endfor %}
+</div>
+{% endblock %}

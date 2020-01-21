@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<article>
+    <time datetime="{{ date.strftime('%Y-%m-%d') }}">
+        {{ date.strftime('%Y-%m-%d') }}
+    </time>
+    {{ article }}
+</article>
+{% endblock%}

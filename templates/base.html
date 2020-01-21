@@ -1,0 +1,80 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width" />
+            <link href="https://fonts.googleapis.com/css?family=Gelasio" rel="stylesheet">
+            <title>{% if title %} {{ title }} | Pensar a todo custo {% else %} Pensar a todo custo {% endif %}</title>
+            <style type="text/css" media="screen">
+                main {
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                }
+
+                header {
+                    text-align: center
+                }
+
+
+                .details {
+                    display: grid;
+                    grid-template-columns: 150px 250px 300px
+                }
+
+
+                .details > .time {
+                    text-align: center;
+                }
+                .details > .time, .summary {
+                    margin-top: 21px;
+                }
+
+                body {
+                    font-family: 'Gelasio', sans-serif;
+                    font-size: 20px;
+                }
+
+                .navigation {
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                    padding-left: 0;
+                    display: grid;
+                    grid-template-columns: 100px 100px 100px;
+                }
+
+                .navigation > li {
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0 0.75rem;
+                }
+
+                .navigation > li:not(:last-child) {
+                    border-right: 2px solid #d2d5e4;
+                }
+
+                .archive-article-details {
+                    display: grid;
+                    grid-template-columns: 150px 400px;
+                }
+
+                .archive-article-details > p {
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <main>
+            <header>
+                <h3 class="title-blog">Pensar a todo custo: pensamentos e idéias</h3>
+                <ul class="navigation">
+                    <li><a href="{{ url_for('index') }}">blog</a></li>
+                    <li><a href="{{ url_for('archive') }}">archive</a></li>
+                    <li><a href="/about">about</a></li>
+                </ul>
+            </header>
+            {% block content %}{% endblock %}
+            </main>
+        </body>
+    </html>

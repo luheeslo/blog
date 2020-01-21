@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+   <ul>
+       {% for year in articles.keys() %}
+       <li>
+            {{ year }}
+            <ul>
+                {% for month in articles[year].keys() %}
+                <li>
+                    {{ month }}
+                    <ul>
+                       {% for article in articles[year][month] %}
+                       <li class="archive-article-details">
+                           <p>
+                               {{ article['date'].strftime('%Y-%m-%d') }}
+                               <h4>
+                                   <a href="{{ url_for('page', entry=article['path']) }}">{{ article['title'] }}</a>
+                               </h4>
+                           </p>
+                       </li>
+                       {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+       </li>
+       {% endfor %}
+   </ul>
+{% endblock %}
