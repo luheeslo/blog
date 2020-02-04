@@ -1,25 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
+   <h1>Archive</h1>
    <ul>
        {% for year in articles.keys() %}
        <li>
             {{ year }}
             <ul>
                 {% for month in articles[year].keys() %}
-                <li>
-                    {{ month }}
-                    <ul>
-                       {% for article in articles[year][month] %}
-                       <li class="archive-article-details">
-                           <p>
-                               {{ article['date'].strftime('%Y-%m-%d') }}
-                               <h4>
-                                   <a href="{{ url_for('page', entry=article['path']) }}">{{ article['title'] }}</a>
-                               </h4>
-                           </p>
-                       </li>
-                       {% endfor %}
-                    </ul>
+                <li class="month-line">
+                    <details>
+                        <summary>
+                            {{ month }} 
+                        </summary>
+                        <ul>
+                           {% for article in articles[year][month] %}
+                           <li>
+                               <h2><a href="{{ url_for('page', entry=article['path']) }}">{{ article['title'] }}</a></h2>
+                               <time datetime="{{ article['date'].strftime('%Y-%m-%d') }}">
+                                   {{ article['date'].strftime('%Y-%m-%d') }}
+                               </time>
+                               <p class="summary">{{ article['summary'] }}</p>
+                           </li> 
+                           {% endfor %}
+                        </ul>
+                    </details>
                 </li>
                 {% endfor %}
             </ul>

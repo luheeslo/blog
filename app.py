@@ -50,6 +50,7 @@ def get_recent_articles(quantity=-1):
             ({'date': get_article_date(),
               'title': get_article_title(),
               'summary': get_article_summary(),
+              'tags': get_article_tags(),
               'path': get_article_path()} for article in get_articles()),
             key=lambda e: e['date'], reverse=True)[qto]
 
@@ -72,6 +73,10 @@ def get_article_date():
 
 def get_article_path():
     return get_metadata()['path'][0]
+
+
+def get_article_tags():
+    return get_metadata()['tags']
 
 
 # error handlers
@@ -119,5 +124,25 @@ def archive():
             else:
                 articles_by_year.update({month: [article]})
 
-    return render_template('archive.html', articles=articles_details,
-                                           title="Archive")
+    return render_template('archive.html', articles=articles_details, title="Archive")
+
+
+@app.route('/tags/')
+def tags():
+    t = []
+    for article in get_recent_articles():
+        t += article['tags']
+
+    tags_dict = {}
+    for tag in set(t):
+        tags_dict.update({tag: t.count(tag)})
+
+    return render_template('tags.html', tags=tags_dict)
+
+
+@app.route('/tags/<tag>')
+def get_articles_by_tag(tag):
+    articles = [article for article in get_recent_articles()
+                if tag in article['tags']]
+
+    return render_template('index.html', articles=articles)

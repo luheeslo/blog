@@ -3,78 +3,78 @@
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width" />
-            <link href="https://fonts.googleapis.com/css?family=Gelasio" rel="stylesheet">
-            <title>{% if title %} {{ title }} | Pensar a todo custo {% else %} Pensar a todo custo {% endif %}</title>
+            <meta name="author" content="lhel">
+            <meta name="publisher" content="lhel">
+            <meta name="description" content="Pensamentos e ideias de Luis">
+            <meta name="generator" content="python">
+            <meta name="keywords" content="programming,python,golang,c#,asp net core,refactory">
+            <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
+            <title>lhel | Pensar a Todo Custo</title>
             <style type="text/css" media="screen">
-                main {
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 50%;
-                }
-
-                header {
-                    text-align: center
-                }
-
-
-                .details {
-                    display: grid;
-                    grid-template-columns: 150px 250px 300px
-                }
-
-
-                .details > .time {
-                    text-align: center;
-                }
-                .details > .time, .summary {
-                    margin-top: 21px;
-                }
-
                 body {
-                    font-family: 'Gelasio', sans-serif;
-                    font-size: 20px;
+                    font: 20px Crimson Text, sans-serif;
                 }
 
-                .navigation {
+                h2 a {
+                    color: #2771b5;
+                    text-decoration: none;
+                }
+
+                article > h1 {
+                    color: #2771b5;
+                }
+
+                .title-blog {
+                    text-align: center;
+                }
+
+                .center {
                     margin-left: auto;
                     margin-right: auto;
                     width: 50%;
-                    padding-left: 0;
-                    display: grid;
-                    grid-template-columns: 100px 100px 100px;
                 }
 
-                .navigation > li {
-                  list-style-type: none;
-                  margin: 0;
-                  padding: 0 0.75rem;
+                .nav-section {
+                  display: flex;
+                  padding-left: 0;
+                  width: 60%;
                 }
 
-                .navigation > li:not(:last-child) {
-                    border-right: 2px solid #d2d5e4;
+                .nav-section > li {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0 0.75rem;
                 }
 
-                .archive-article-details {
-                    display: grid;
-                    grid-template-columns: 150px 400px;
+                .nav-section > li:not(:last-child) {
+                   border-right: 2px solid #d2d5e4;
                 }
 
-                .archive-article-details > p {
-                    text-align: center;
+                footer {
+                    margin-top: 80px;
                 }
             </style>
         </head>
-        <body>
-            <main>
-            <header>
-                <h3 class="title-blog">Pensar a todo custo: pensamentos e idéias</h3>
-                <ul class="navigation">
-                    <li><a href="{{ url_for('index') }}">blog</a></li>
-                    <li><a href="{{ url_for('archive') }}">archive</a></li>
-                    <li><a href="/about">about</a></li>
-                </ul>
+        <body class="center">
+            <header class="center">
+                <h1 class="title-blog">Pensar a todo custo</h1>
+                <nav>
+                    <ul class="nav-section center">
+                        <li><a href="/">Blog</a></li>
+                        <li><a href="/archive">Archive</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                    </ul>
+                </nav>
             </header>
-            {% block content %}{% endblock %}
+            <main>
+                {% block content %}{% endblock %}
             </main>
+            <footer>
+                <p style="text-align: end">Contato: 
+                    <a href="https://twitter.com/luheeslo">Twitter</a>,
+                    <a href="#">Linkedin</a>
+                    <a href="#">Github</a>
+                </p>
+            </footer>
         </body>
     </html>

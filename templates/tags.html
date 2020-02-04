@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Tags</h1>
+<ul>
+    {% for tag in tags.keys() %}
+    <li><a href="{{ url_for('get_articles_by_tag', tag=tag) }}" style="font-size: {{ 100 + tags[tag] * 8 }}%">{{ tag }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
