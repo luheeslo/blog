@@ -53,7 +53,7 @@ def get_article_summary():
 
 
 def get_article_date():
-    return datetime.strptime(get_metadata()['date'][0], app.config['DATE_FORMAT'])
+    return datetime.strptime(get_metadata()['date'][0], app.config['DATE_FORMAT_EXTRACT'])
 
 
 def get_article_path():

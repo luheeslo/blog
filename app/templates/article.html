@@ -2,6 +2,10 @@
 
 {% block content %}
 <article>
+    <h1>{{ title }}</h1>
+    <time datetime="{{ date.strftime(config['DATE_FORMAT_SHOWED']) }}">
+       {{ date.strftime(config['DATE_FORMAT_SHOWED']) }}
+    </time>
     {{ article }}
 </article>
 {% endblock%}

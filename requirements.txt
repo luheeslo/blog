@@ -1,5 +1,7 @@
+Babel==2.8.0
 Click==7.0
 Flask==1.1.1
+Flask-Babel==0.12.2
 httplib2==0.15.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
@@ -11,5 +13,6 @@ pkg-resources==0.0.0
 plantuml==0.3.0
 plantuml-markdown==3.2.1
 python-dotenv==0.10.4
+pytz==2019.3
 six==1.13.0
 Werkzeug==0.16.0

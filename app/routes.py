@@ -1,11 +1,19 @@
 import calendar
+import locale
 
-from flask import render_template
+from flask import render_template, request
 from jinja2 import Markup
 
 from app import app
 from app.queries import (get_recent_articles, get_article, get_article_date,
                      get_article_title)
+
+
+@app.before_request
+def before_request():
+    support_languages = list(app.config['LANGUAGES'].keys())
+    language = request.accept_languages.best_match(support_languages)
+    locale.setlocale(locale.LC_TIME, app.config['LANGUAGES'][language])
 
 
 @app.route('/')
