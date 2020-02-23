@@ -4,9 +4,7 @@
     {% for article in articles %}
    <section>
        <h2><a href="{{ url_for('page', entry=article['path']) }}">{{ article['title'] }}</a></h2>
-       <time datetime="{{ article['date'].strftime(config['DATE_FORMAT_SHOWED']) }}">
-           {{ article['date'].strftime(config['DATE_FORMAT_SHOWED']) }}
-       </time>
+       {{ date_repr(article['date']) }}
        <p class="summary">{{ article['summary'] }}</p>
    </section>
     {% endfor %}

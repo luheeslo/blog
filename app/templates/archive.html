@@ -16,9 +16,7 @@
                            {% for article in articles[year][month] %}
                            <li>
                                <h2><a href="{{ url_for('page', entry=article['path']) }}">{{ article['title'] }}</a></h2>
-                               <time datetime="{{ article['date'].strftime('%Y-%m-%d') }}">
-                                   {{ article['date'].strftime('%Y-%m-%d') }}
-                               </time>
+                               {{ date_repr(article['date']) }}
                                <p class="summary">{{ article['summary'] }}</p>
                            </li> 
                            {% endfor %}

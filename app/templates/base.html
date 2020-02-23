@@ -10,6 +10,12 @@
             <meta name="keywords" content="programming,python,golang,c#,asp net core,refactory">
             <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
             <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+            {{ moment.include_jquery() }}
+            {{ moment.include_moment() }}
+            {{ moment.lang(g.locale) }}
+            {% macro date_repr(date) %}
+              {{ moment(date).format(config['DATE_FORMAT_SHOWED']) }}
+            {% endmacro %}
             <title>lhel | Pensar a Todo Custo</title>
         </head>
         <body class="center">
