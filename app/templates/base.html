@@ -23,9 +23,9 @@
                 <h1 class="title-blog">Pensar a todo custo</h1>
                 <nav>
                     <ul class="nav-section center">
-                        <li><a href="/">Blog</a></li>
-                        <li><a href="/archive">Archive</a></li>
-                        <li><a href="/tags">Tags</a></li>
+                      <li><a href="{{ url_for('index')}}">Blog</a></li>
+                      <li><a href="{{ url_for('archive') }}">Archive</a></li>
+                      <li><a href="{{ url_for('tags') }}">Tags</a></li>
                     </ul>
                 </nav>
             </header>
