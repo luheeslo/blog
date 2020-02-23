@@ -6,7 +6,7 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config:
-    ARTICLES_DIR = os.getenv('ARTICLES_DIR') or 'articles'
+    ARTICLES_DIR = os.getenv('ARTICLES_DIR') or os.path.join(basedir, 'articles')
     ARTICLES_PER_PAGE = os.getenv('ARTICLES_PER_PAGE') or 5
     DATE_FORMAT_EXTRACT = os.getenv('DATE_FORMAT_EXTRACT') or '%Y-%d-%m'
     DATE_FORMAT_SHOWED = os.getenv('DATE_FORMAT_SHOWED') or 'LL'
